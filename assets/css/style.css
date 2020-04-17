@@ -1,0 +1,385 @@
+/* General */
+body {
+	font-family: "Nunito", sans-serif;
+	/* color: rgba(255,255,255); */
+	color: #edf9f9;
+	font-size: 20px;
+	text-transform: lowercase;
+	font-variant: small-caps;
+	background-size: cover;
+	background-blend-mode: multiply;
+	background-color: #888;
+	margin: 0;
+}
+h1 {
+	font-weight: 300;
+	font-size: 40px;
+	text-transform: none;
+	font-variant: none;
+	color: rgba(255,255,255,1);
+	position: relative;
+	left: 5%;
+}
+
+
+/* Navigation Bar */
+.navbar {
+	position: absolute;
+	left: 0%;
+  width: 100%;
+	margin-top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.navbar a {
+  padding: 20px;
+  text-decoration: none;
+  font-size: 20px;
+  width: 25%;
+  text-align: center;
+  font-family: "Nunito";
+	font-weight: bold;
+  color: #daf2f2
+}
+.navbar a:hover {
+    color: #ffed96;
+}
+.navbar li {
+  position: relative;
+  display: inline-block;
+}
+.navbar li:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 0;
+  height: 2px;
+  background-color: #ffed96;
+  transition: width .3s ease-in-out;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+.navbar li:hover:after {
+  width: 20%;
+}
+.navbar a.active {
+  font-weight: bolder;
+  color: #ffed96;
+}
+
+
+/* Home Page Format */
+/* Explore Wave Animation*/
+.wavy {
+	font-size: 36px;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.wavy span{
+	position: relative;
+	display: inline-block;
+	animation: wave 1s ease-in-out infinite;
+	animation-delay: calc(0.1s * var(--i));
+}
+@keyframes wave {
+	0% {transform: translateY(0px);}
+	20% {transform: translateY(-20px);}
+	40%, 100% {transform: translateY(0px);}
+}
+/* Button Format*/
+.button {
+	position: relative;
+	margin-top: 50px;
+	left: 0%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.button a{
+	position: relative;
+	padding: 25px 50px;
+	text-decoration: none;
+	color: #fff;
+	font-size: 24px;
+	letter-spacing: 2px;
+	overflow: hidden;
+	background: rgba(	218, 242, 242, 0.1);
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+.button a:before{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background: rgba(218, 242, 242, 0.1);
+}
+.button a:after{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent,
+							rgba(255, 237, 150, 0.2), transparent);
+	transition: 0.5s;
+	transition-delay: 0.2s;
+}
+.button a:hover:after{
+	left: 100%
+}
+.button a span{
+	position: absolute;
+	display: block;
+	transition: 0.5s ease;
+}
+.button a span:nth-child(1){
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 1px;
+	background: #ffed96;
+}
+.button a:hover span:nth-child(1){
+	width: 100%;
+	transform: translateX(100%);
+}
+.button a span:nth-child(2){
+	top: 0;
+	left: 0;
+	width: 1px;
+	height: 0px;
+	background: #ffed96;
+}
+.button a:hover span:nth-child(2){
+	height: 100%;
+	transform: translateY(100%);
+}
+.button a span:nth-child(3){
+	bottom: 0;
+	right: 0;
+	width: 0;
+	height: 1px;
+	background: #ffed96;
+}
+.button a:hover span:nth-child(3){
+	width: 100%;
+	transform: translateX(-100%);
+}
+.button a span:nth-child(4){
+	bottom: 0;
+	right: 0;
+	width: 1px;
+	height: 0px;
+	background: #ffed96;
+}
+.button a:hover span:nth-child(4){
+	height: 100%;
+	transform: translateY(-100%);
+}
+
+
+/* Discover Page Format*/
+/* Container */
+#root {
+	position: absolute;
+	width: 95%;
+	max-width: 1200px;
+	height: 95%;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+}
+#flowers {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+}
+/* Format Cards */
+.container {
+	position: relative;
+	width: 20%;
+	min-width: 300px;
+	height: 50%;
+	min-height: 300px;
+	transition: opacity 0.3s;
+}
+#flowers:hover .container {
+	opacity: 0.8;
+}
+#flowers .container:hover {
+	opacity: 1;
+}
+.container .bg {
+	width: 80%;
+	height: 80%;
+	border-radius: 10px;
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1000;
+	box-shadow: 0px 3px 10px 0 rgba(255, 237, 150,0.2);
+	transition: all 0.5s;
+}
+.container:hover .bg {
+	box-shadow: 0px 6px 25px 0 rgba(255, 237, 150,0.8);
+	transform: translate(-50%, -52%);
+}
+.card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%;
+	height: 80%;
+	border-radius: 10px;
+	transition: all 0.3s;
+}
+.container:hover .card {
+	transform: translate(-50%, -52%);
+}
+.container .card ~ .bg{
+	background: rgba(218,242,242, 0.8);
+}
+/* Flower Card Label */
+.container .bg:before {
+	display: block;
+	position: absolute;
+	top: -30px;
+	width: 100%;
+	height: 20px;
+}
+.container:nth-child(1) .bg:before {
+	content: "Carnation";
+}
+.container:nth-child(2) .bg:before {
+	content: "Iris";
+}
+.container:nth-child(3) .bg:before {
+	content: "Daffodil";
+}
+.container:nth-child(4) .bg:before {
+	content: "Daisy";
+}
+.container:nth-child(5) .bg:before {
+	content: "Lily";
+}
+.container:nth-child(6) .bg:before {
+	content: "Rose";
+}
+.container:nth-child(7) .bg:before {
+	content: "Delphinium";
+}
+.container:nth-child(8) .bg:before {
+	content: "Gladiolus";
+}
+.container:nth-child(9) .bg:before {
+	content: "Aster";
+}
+.container:nth-child(10) .bg:before {
+	content: "Marigold";
+}
+.container:nth-child(11) .bg:before {
+	content: "Chrysanthemum";
+}
+.container:nth-child(12) .bg:before {
+	content: "Sunflower";
+}
+
+
+/* Informational Flower Page Format */
+.content #post .flower-name{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	font-size: 120px;
+	margin-bottom: 20px;
+}
+.content #post .text{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	font-size: 24px;
+	margin-bottom: 75px;
+}
+.content #post .story{
+	font-size: 16px;
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	text-transform: none;
+	font-variant: none;
+	text-align: center;
+	line-height: 1.75;
+}
+
+
+/* Flower Page Format */
+.slider{
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	background: url("flower_bg.jpg");
+	background-size: cover;
+	background-blend-mode: multiply;
+	background-color: #888;
+}
+.clipper{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.clipper .diamond{
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	background-attachment: fixed;
+	background-position: center;
+	transition: 2s;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	z-index: 1;
+}
+.clipper .diamond.diamond1{
+	background: url("flower_one.jpg");
+	/* Photo by Sergey Shmidt on Unsplash */
+	background-size: cover;
+	clip-path: polygon(21% 35%, 32% 45%, 21% 55%, 10% 45%);
+	/* opacity: 50% */
+}
+.clipper .diamond.diamond2{
+	background: url("flower_two.jpg");
+	/* Photo by Jonathan Meyer on Unsplash */
+	background-size: cover;
+	clip-path: polygon(50% 35%, 61% 45%, 50% 55%, 39% 45%);
+}
+.clipper .diamond.diamond3{
+	background: url("flower_three.jpg");
+	/* Photo by Amber Renae on Unsplash */
+	background-size: cover;
+	clip-path: polygon(79% 35%, 90% 45%, 79% 55%, 68% 45%);
+}
+.clipper .diamond:active{
+	clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+	z-index: 5;
+}
+.content .quote{
+	position: absolute;
+	font-size: 20px;
+	top: 60%;
+	left: 27%;
+	width: 45%;
+	text-align: center;
+}
